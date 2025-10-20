@@ -1,15 +1,18 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
 
-
-function App() {
-
-
+function App() { 
   return (
-    <>
-      <div>
-        <h1 className="text-3xl text-teal-700 font-bold underline">Hello World</h1>
-      </div>
-    </>
-  )
+
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/Login" replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
