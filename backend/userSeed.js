@@ -21,7 +21,7 @@ const seedUser = async () => {
   });
 
   await newUser.save();
-  console.log("✅ User created successfully");
+  console.log("User created successfully");
 };
 
 seedUser();
