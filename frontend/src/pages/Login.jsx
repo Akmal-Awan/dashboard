@@ -9,26 +9,24 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST", // ✅ must be POST
+        method: "POST", 
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }), // ✅ send data correctly
+        body: JSON.stringify({ email, password }), 
       });
 
-      // parse response body (works for success and error payloads)
       const data = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        // surface backend message if present
         const message = data && data.message ? data.message : "Login failed";
         throw new Error(message);
       }
 
-      console.log("✅ Login successful:", data);
+      console.log("Login successful:", data);
       setError("");
     } catch (error) {
-      console.error("❌ Login failed:", error);
+      console.error("Login failed:", error);
       setError(error.message || "Login failed");
     }
   };
