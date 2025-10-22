@@ -4,14 +4,13 @@ import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
 import connectToDatabase from "./db/db.js";
 
-dotenv.config(); // ✅ load env first
+dotenv.config(); 
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// ✅ add error handling for async functions
 const startServer = async () => {
   try {
     await connectToDatabase();
