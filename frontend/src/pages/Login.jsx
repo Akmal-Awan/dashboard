@@ -32,7 +32,7 @@ const Login = () => {
         } else {
           navigate("/user-dashboard");
         }
-      } else {
+      } else { 
         throw new Error(data.message || "Login failed");
       }
 
@@ -51,6 +51,15 @@ const Login = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
+
+            <div className="flex justify-center space-x-2 items-center mb-4 ">
+              <input type="radio" id="role1" name="role" value="Admin" className="cursor-pointer" />
+                <label htmlFor="role1" className="cursor-pointer" > Admin</label><br />
+              <input type="radio" id="role2" name="role" value="User" className="cursor-pointer" />
+                <label htmlFor="role2" className="cursor-pointer"> User </label><br />
+
+           </div>
+            
             <label htmlFor="email" className="block text-gray-700 mb-1">
               Email:
             </label>
@@ -85,6 +94,14 @@ const Login = () => {
             >
               Login
             </button>
+          </div>
+          <div>
+            <p className="mt-4 text-center text-sm">
+              Don't have an account?{" "}
+              <a href="/register" className="text-teal-500 hover:text-teal-700">
+                Register
+              </a>
+            </p>
           </div>
 
           {error && (

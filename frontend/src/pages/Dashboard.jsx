@@ -1,21 +1,15 @@
 import React from 'react'
-import { useAuth } from '../context/authContext'
-import { useNavigate } from 'react-router-dom'
+import AdminSideBar from '../components/dashboard/AdminSideBar';
+import NavBar from '../components/dashboard/NavBar';
 
 const Dashboard = () => {
-  const { user, loading } = useAuth();
-  const navigate = useNavigate();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user) {
-    navigate('/login');
-  }
   return (
-    <div>
-      <h1 className = 'text-3xl font-bold text-red-500 h-screen items-center justify-center align-center'>Welcome to the Dashboard { user.name }</h1>
+    <div className='flex'>
+      <AdminSideBar />
+      <div className='flex-1 ml-64 bg-gray-100 h-screen'>
+        <NavBar />
+      </div>
     </div>
   )
 }
